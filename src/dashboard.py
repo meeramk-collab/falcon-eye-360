@@ -1,7 +1,5 @@
-# src/dashboard.py
 import streamlit as st, cv2
 from detector import detect, draw_boxes
-# (optional) add tracker/events later
 
 st.title("Falcon Eye 360 - Demo Dashboard")
 st.caption("YOLO demo: webcam mode only")
@@ -20,14 +18,11 @@ def run(cap):
 
 if start:
     cap = None
-    # try both common camera indexes on Mac (built-in can be 0 or 1)
-    for idx in (0, 1):
+    for idx in (0, 1):  # try both indexes on Mac
         c = cv2.VideoCapture(idx)
         if c.isOpened():
-            cap = c
-            break
+            cap = c; break
     if not cap:
         st.error("Webcam not available or permission denied. Enable Camera for Terminal in System Settings.")
     else:
-        run(cap)
-        cap.release()
+        run(cap); cap.release()

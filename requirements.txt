@@ -1,0 +1,9 @@
+ultralytics
+opencv-python
+streamlit
+scikit-learn
+xgboost
+numpy
+pandas
+matplotlib
+cryptography
